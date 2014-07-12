@@ -3,7 +3,7 @@ var global = {
     map : '',
     geocoder : '',
     icons : {tree: "icons/trees.png"},
-    default : new google.maps.LatLng(-37.812, 144.961)
+  default : new google.maps.LatLng(-37.5652504, 143.8567112)
 };
 
 function initialize() {
