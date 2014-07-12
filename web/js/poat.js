@@ -68,7 +68,7 @@ function initialize() {
   ];
 
   var mapOptions = {
-    zoom: global.minZoom,
+    zoom: 20,
     minZoom: global.minZoom,
     center: global.default,
     mapTypeControlOptions: {
