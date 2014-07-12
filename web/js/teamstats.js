@@ -28,7 +28,7 @@ $(function () {
                 verticalAlign: 'top',
                 x: -40,
                 y: 100,
-                floating: true,
+                floating: false,
                 borderWidth: 1,
                 backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor || '#FFFFFF'),
                 shadow: true
@@ -74,7 +74,7 @@ $(function () {
                         verticalAlign: 'top',
                         x: -40,
                         y: 100,
-                        floating: true,
+                        floating: false,
                         borderWidth: 1,
                         backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor || '#FFFFFF'),
                         shadow: true
