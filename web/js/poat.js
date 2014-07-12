@@ -2,7 +2,7 @@ var global = {
     id : 'poat',
     map : '',
     geocoder : '',
-    icons : {tree: "icons/trees.png"},
+    icons : {tree: "icons/tree.png", treehover: "icons/tree-hover.png", treeselected: "icons/tree-selected.png"},
   default : new google.maps.LatLng(-37.5652504, 143.8567112)
 };
 
@@ -78,7 +78,35 @@ function events() {
         position: mPosition,
         title: mTitle,
         icon: global.icons.tree
-      }).setMap(global.map);
+      })
+
+      // set all markers not selected
+      marker.selected = false;
+
+      // tree events
+      google.maps.event.addListener(marker, 'mouseover', function () {
+        if(marker.selected == false)
+          this.setIcon(global.icons.treehover);
+      });
+
+      google.maps.event.addListener(marker, 'mouseout', function () {
+        if(marker.selected == false)
+          this.setIcon(global.icons.tree);
+      });
+
+      google.maps.event.addListener(marker, 'click', function () {
+        if(marker.selected == false) {
+          this.setIcon(global.icons.treeselected);
+          marker.selected = true;
+        } else {
+          marker.selected = false;
+          this.setIcon(global.icons.tree);
+        }
+      });
+
+      // Add to map
+      marker.setMap(global.map);
+
     });
   });
 }
