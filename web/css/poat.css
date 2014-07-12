@@ -12,3 +12,28 @@ input#search {
   border-color: #101010;
   width: 100px;
 }
+
+span.followme {
+  font-size: 14pt;
+  margin-top: 8px;
+  color: #ccc;
+  border: 1px solid #ccc;
+  padding: 6px 6px;
+  border-radius: 4px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+span.followme:hover {
+  color: #63AFD0;
+  border-color: #63AFD0;
+}
+
+span.followme.active {
+  color: #80EA69;
+  border-color: #80EA69;
+}
+
+span.followme.polling {
+  border-color: #63AFD0;
+}
