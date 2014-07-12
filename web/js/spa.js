@@ -136,7 +136,7 @@ poat.controller('OverviewCtrl', [ '$scope', '$http', function($scope, $http) {
     $.getJSON(url, function(trees) {
       var markers = [];
       $.each(trees, function(i, tree) {
-        var tm = treeMarker(tree);
+        var tm = $scope.treeMarker(tree);
         markers.push(tm);
       });
       if($scope.global.clusterer) $scope.global.clusterer.clearMarkers();
