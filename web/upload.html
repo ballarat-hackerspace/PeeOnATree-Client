@@ -14,7 +14,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/account.css" rel="stylesheet">
+    <link href="css/poat.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -26,13 +26,15 @@
   <body>
 
     <div class="container">
-
+      <div class="col-md-offset-4 col-md-5">
       <form class="form-signin" role="form" method="POST" action="/PeeOnATree-Server/api/tree/1/uploadpic" >
         <h2 class="form-signin-heading">Upload</h2>
-        <input type="file" class="form-control" placeholder="File select" name="upload" required autofocus>
+        <div class="form-group">
+          <input type="file" class="form-control" placeholder="File select" name="upload" required autofocus>
+        </div>
         <button class="btn btn-lg btn-primary btn-block green" type="submit">Upload</button>
       </form>
-
+      </div>
     </div> <!-- /container -->
 
 
