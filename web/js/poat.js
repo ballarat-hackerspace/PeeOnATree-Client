@@ -2,6 +2,7 @@ var global = {
     id : 'poat',
     map : '',
     geocoder : '',
+    icons : {tree: "icons/trees.png"},
     default : new google.maps.LatLng(-37.812, 144.961)
 };
 
@@ -63,4 +64,26 @@ function initialize() {
   global.map.mapTypes.set(global.id, customMapType);
 }
 
-$(document).ready(function() { initialize(); });
+function events() {
+  var url = "http://www.eventsvictoria.com/distributionservice/rss.xml"
+  $.get(url, function(data) {
+    $xml = $(data);
+    $xml.find("item").each(function(i, itm) {
+      var mTitle = $(itm).find('title').text();
+      var address = $(itm).find('venue').find("address");
+      var lng = $(itm).find('longitude').text();
+      var lat = $(itm).find('latitude').text();
+      var mPosition = new google.maps.LatLng(lat,lng);
+      var marker = new google.maps.Marker({
+        position: mPosition,
+        title: mTitle,
+        icon: global.icons.tree
+      }).setMap(global.map);
+    });
+  });
+}
+
+$(document).ready(function() {
+  events();
+  initialize();
+});
