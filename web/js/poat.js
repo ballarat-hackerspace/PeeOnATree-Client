@@ -29,7 +29,17 @@ var global = {
 };
 
 function initialize() {
+  mapInit();
+  searchInit();
+}
 
+function searchInit() {
+  $("#search").keypress(function(e) {
+    if(e.which == 13) search();
+  });
+}
+
+function mapInit() {
   var mapStyles = [
     {
       "stylers": [
@@ -79,12 +89,13 @@ function initialize() {
 
   // Create map and geocoder objects
   global.map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+  global.geocoder = new google.maps.Geocoder();
 
   // Map events
   google.maps.event.addListener(global.map, "idle", updateMap);
 
   // Style Google Map
-  var styledMapOptions = { name: 'Poat' };
+  var styledMapOptions = { name: 'POAT' };
   var customMapType = new google.maps.StyledMapType(mapStyles, styledMapOptions);
   global.map.mapTypes.set(global.id, customMapType);
 }
@@ -140,7 +151,6 @@ function registerTreeMarkerEvents(marker) {
 }
 
 function updateMap() {
-  if(global.clusterer) global.clusterer.clearMarkers();
   var url = buildUrl();
   console.log(url);
   $.getJSON(url, function(trees) {
@@ -149,6 +159,7 @@ function updateMap() {
       var tm = treeMarker(tree);
       markers.push(tm);
     });
+    if(global.clusterer) global.clusterer.clearMarkers();
     global.clusterer = new MarkerClusterer(global.map, markers, global.clusterOpts);
   });
 }
@@ -180,6 +191,32 @@ function mapRadius(zoom) {
   return radius;
 }
 
+function search() {
+  var address = $("#search").val();
+  global.geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      global.map.setCenter(results[0].geometry.location);
+      console.log('Location found: ' + results[0].formatted_address);
+    } else if(status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+      console.log("Sorry hit Google's API query limit. Try again another day");
+    } else if(status == google.maps.GeocoderStatus.ZERO_RESULTS) {
+      console.log('Sorry no results found for that location');
+    } else {
+      console.log('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+
+function findme() {
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var latlng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+      global.map.setCenter(latlng);
+    });
+  }
+}
+
 $(document).ready(function() {
   initialize();
+  findme();
 });
