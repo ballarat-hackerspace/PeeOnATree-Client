@@ -37,3 +37,8 @@ span.followme.active {
 span.followme.polling {
   border-color: #63AFD0;
 }
+
+.stats tr:nth-child(even)
+{
+    background: #444;
+}
