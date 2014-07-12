@@ -14,7 +14,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/account.css" rel="stylesheet">
+    <link href="css/poat.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -26,18 +26,25 @@
   <body>
 
     <div class="container">
-
-      <form class="form-signin" role="form" method="POST" action="/PeeOnATree-Server/api/user/logon" >
-        <h2 class="form-signin-heading">Login</h2>
-        <input type="email" class="form-control" placeholder="Email address" name="email" required autofocus>
-        <input type="password" class="form-control" placeholder="Password" name="password" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
+      <div class="col-md-offset-4 col-md-5 login">
+      <h2 class="form-signin-heading">Login</h2>
+      <form role="form" action="/PeeOnATree-Server/api/user/logon" method="POST" >
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="Email address" name="email" required autofocus>
         </div>
-        <button class="btn btn-lg btn-primary btn-block green" type="submit">Lift a Leg</button>
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="Password" name="password" required>
+        </div>
+        <div class="checkbox pull-right">
+          <label>
+            <input type="checkbox">
+            Remember me </label>
+        </div>
+        <button type="submit" class="btn btn btn-primary green">
+          Left a Leg
+        </button>
       </form>
+      </div>
 
     </div> <!-- /container -->
 

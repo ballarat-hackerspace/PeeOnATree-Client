@@ -1,12 +1,16 @@
 body, html { height: 100%; background-color: #333; }
+
 .container, .wrapper, .wrapper > div { height: inherit; }
+
 body {
   padding-top: 50px;
   color: #90ee7e;
 }
+
 .wrapper {
   text-align: center;
 }
+
 input#search {
   margin-top: 8px;
   border-color: #101010;
@@ -38,7 +42,28 @@ span.followme.polling {
   border-color: #63AFD0;
 }
 
-.stats tr:nth-child(even)
-{
+.stats tr:nth-child(even) {
     background: #444;
+}
+
+.btn-primary.green {
+  border-color: #101010;
+  background-color: #7EB374;
+}
+
+.btn-primary.green:hover {
+  background-color: #3D9B29;
+}
+
+.table:nth-child(odd) {
+  background: #444;
+}
+
+.login {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.info {
+    margin:5px;
 }
