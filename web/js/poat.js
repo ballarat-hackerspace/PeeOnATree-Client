@@ -18,7 +18,7 @@ var global = {
     treeselected: "icons/tree-selected.png",
     treemarked: "icons/tree-marked.png"
   },
-  default : new google.maps.LatLng(-37.5652504, 143.8567112)
+  default : new google.maps.LatLng(-37.56483209284608,143.8572060675633)
 };
 
 function initialize() {
