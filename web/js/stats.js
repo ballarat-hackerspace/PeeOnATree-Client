@@ -1,3 +1,20 @@
+var userData = {
+  "uid" : '1234',
+  "email" : 'hi@hi.com',
+  "gravtar" : 'fdsfds',
+  "marks" : [{
+    "trid":"1",
+    "datetime":"2014-07-12 20:07:27"
+  },{
+    "trid":"40",
+    "datetime":"2014-07-12 20:07:33"
+  }]
+};
+
+
+/*
+*
+*/
 function events() {
   $('a[href="#team"]').click(function(){
     $.getScript("js/teamstats.js", function(){
@@ -12,6 +29,20 @@ function events() {
   });
 }
 
+/*
+* Populates the account details
+*/
+function populateUserData(){
+  console.log(userData.uid);
+  $('#gravtar').attr('src',userData.gravtar)
+  $('#uid').text(userData.uid);
+  $('#email').text(userData.email);
+  $('#team').text('Wolf Pack');
+}
+
 $(document).ready(function() {
   events();
+  console.log(userData);
+  populateUserData();
+  createTotalStats();
 });
