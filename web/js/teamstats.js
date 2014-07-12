@@ -1,5 +1,14 @@
+function getData(){
+$.ajax({
+  url : "http://54.79.38.93/PeeOnATree-Server/api/user/profile"
+}).then(function(dataReturned){
+  console.log("Data returned:" + data);
+  //userData = dataReturned;
+})
+}
+
 $(function () {
-        $('#chart1').highcharts({
+ var chart1 = {
             chart: {
                 type: 'bar'
             },
@@ -35,14 +44,9 @@ $(function () {
             credits: {
                 enabled: false
             },
-            series: [{
-                name: 'Your team',
-                data: [300]
-            }, {
-                name: 'Fighting Mongooses',
-                data: [487]
-            }]
-        });
+            series: []
+        };
+
 
         $('#chart2').highcharts({
                     chart: {
@@ -82,10 +86,39 @@ $(function () {
                     },
                     series: [{
                         name: 'Your team',
-                        data: [74]
+                        data: [20]
                     }, {
                         name: 'Fighting Mongooses',
-                        data: [24]
+                        data: [10]
                     }]
                 });
+
+if ("testing" == "testing"){
+  userData = {
+      "uid" : '1234',
+      "email" : 'hi@hi.com',
+      "gravtar" : 'fdsfds',
+      "marks" : [{
+        "trid":"1",
+        "datetime":"2014-07-12 20:07:27"
+      },{
+        "trid":"40",
+        "datetime":"2014-07-12 20:07:33"
+      }],
+      "team_totals" : [["Wolves",100],["Fighting Mongooses",200]]
+    };
+  console.log(userData);
+}
+else{
+  getData();
+}
+
+$.each(userData.team_totals, function(i, item){
+  var userSeries = {name: userData.team_totals[i][0], data: [userData.team_totals[i][1]]}
+  console.log(userSeries);
+  chart1.series[i] = userSeries;
+})
+
+$('#chart1').highcharts(chart1);
+
     });

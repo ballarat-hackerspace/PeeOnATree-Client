@@ -1,4 +1,34 @@
+var userData = {
+  "uid" : '1234',
+  "email" : 'hi@hi.com',
+  "gravtar" : 'fdsfds',
+  "marks" : [{
+    "trid":"1",
+    "datetime":"2014-07-12 20:07:27"
+  },{
+    "trid":"40",
+    "datetime":"2014-07-12 20:07:33"
+  }]
+};
+
+var totals = {
+    "total" : 0,
+    "species_total" : 0
+  };
+
+
+/*
+* calculates our totals from the data returned
+*/
+function calcTotals(){
+  $(userData.marks).each(function(){
+    totals.total +=1;
+  })
+  console.log('Total:' + totals);
+}
+
 $(function () {
+  calcTotals();
         $('#chart1').highcharts({
             chart: {
                 type: 'bar'
@@ -37,7 +67,7 @@ $(function () {
             },
             series: [{
                 name: 'You',
-                data: [300]
+                data: [totals.total]
             }, {
                 name: 'Bob Chmovski',
                 data: [487]
@@ -82,7 +112,7 @@ $(function () {
             },
             series: [{
                 name: 'You',
-                data: [7]
+                data: [totals.species_total]
             }, {
                 name: 'Bob Chmovski',
                 data: [13]
