@@ -9,26 +9,12 @@ $.ajax({
 
 $(function () {
  var chart1 = {
-            chart: {
-                type: 'bar'
-            },
-            title: {
-                text: 'Total Tagged'
-            },
-            xAxis: {
-                title: {
-                    text: null
-                }
-            },
-            yAxis: {
-                min: 0,
-            },
+            chart: { type: 'bar' },
+            title: { text: 'Total Tagged' },
+            xAxis: { title: { text: null } },
+            yAxis: { min: 0, },
             plotOptions: {
-                bar: {
-                    dataLabels: {
-                        enabled: true
-                    }
-                }
+                bar: { dataLabels: { enabled: true } }
             },
             legend: {
                 layout: 'vertical',
@@ -41,9 +27,7 @@ $(function () {
                 backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor || '#FFFFFF'),
                 shadow: true
             },
-            credits: {
-                enabled: false
-            },
+            credits: { enabled: false },
             series: []
         };
 
