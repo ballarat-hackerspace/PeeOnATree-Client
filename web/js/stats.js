@@ -1,14 +1,11 @@
 $(function () {
-        $('#container').highcharts({
+        $('#team1').highcharts({
             chart: {
                 type: 'bar'
             },
             title: {
-                text: 'Trees Tagged'
+                text: 'Tagged'
             },
-            /*subtitle: {
-                text: 'Source: Wikipedia.org'
-            },*/
             xAxis: {
                 categories: ['Total', 'Different Varieties'],
                 title: {
@@ -17,17 +14,7 @@ $(function () {
             },
             yAxis: {
                 min: 0,
-                /*title: {
-                    text: 'Population (millions)',
-                    align: 'high'
-                },
-                labels: {
-                    overflow: 'justify'
-                }*/
             },
-            /*tooltip: {
-                valueSuffix: ' millions'
-            },*/
             plotOptions: {
                 bar: {
                     dataLabels: {
@@ -57,4 +44,50 @@ $(function () {
                 data: [487, 7]
             }]
         });
+
+        $('#team2').highcharts({
+                    chart: {
+                        type: 'bar'
+                    },
+                    title: {
+                        text: 'Cut Down'
+                    },
+                    xAxis: {
+                        categories: ['Total'],
+                        title: {
+                            text: null
+                        }
+                    },
+                    yAxis: {
+                        min: 0,
+                    },
+                    plotOptions: {
+                        bar: {
+                            dataLabels: {
+                                enabled: true
+                            }
+                        }
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'top',
+                        x: -40,
+                        y: 100,
+                        floating: true,
+                        borderWidth: 1,
+                        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor || '#FFFFFF'),
+                        shadow: true
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    series: [{
+                        name: 'Your team',
+                        data: [74]
+                    }, {
+                        name: 'Fighting Mongooses',
+                        data: [24]
+                    }]
+                });
     });
