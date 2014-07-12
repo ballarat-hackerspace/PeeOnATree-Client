@@ -99,10 +99,10 @@ poat.controller('OverviewCtrl', [ '$scope', '$http', function($scope, $http) {
     var marker = new google.maps.Marker({
       position: mPosition,
       id: tree.trid,
-      icon: scaledIcon($scope.global.icons.tree, 29, 32)
+      icon: $scope.scaledIcon($scope.global.icons.tree, 29, 32)
     });
     marker.selected = false;
-    registerTreeMarkerEvents(marker);
+    $scope.registerTreeMarkerEvents(marker);
     return marker;
   }
 
@@ -110,23 +110,23 @@ poat.controller('OverviewCtrl', [ '$scope', '$http', function($scope, $http) {
     // tree events
     google.maps.event.addListener(marker, "mouseover", function () {
       if(this.selected == false)
-        this.setIcon(scaledIcon($scope.global.icons.treehover, 29, 32));
+        this.setIcon($scope.scaledIcon($scope.global.icons.treehover, 29, 32));
     });
 
     google.maps.event.addListener(marker, "mouseout", function () {
       if(this.selected == false)
-        this.setIcon(scaledIcon($scope.global.icons.tree, 29, 32));
+        this.setIcon($scope.scaledIcon($scope.global.icons.tree, 29, 32));
     });
 
     google.maps.event.addListener(marker, "click", function () {
       if(this.selected == false) {
-        this.setIcon(scaledIcon($scope.global.icons.treeselected, 29, 32));
+        this.setIcon($scope.scaledIcon($scope.global.icons.treeselected, 29, 32));
         this.selected = true;
         // todo: do something with id (like lookup tree info api)
         console.log(marker.id);
       } else {
         this.selected = false;
-        this.setIcon(scaledIcon($scope.global.icons.tree, 29, 32));
+        this.setIcon($scope.scaledIcon($scope.global.icons.tree, 29, 32));
       }
     });
   }
