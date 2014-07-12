@@ -64,9 +64,21 @@ function initialize() {
   global.map.mapTypes.set(global.id, customMapType);
 }
 
+function scaledIcon(icon, x, y) {
+  return new google.maps.MarkerImage(
+    icon,
+    null, /* size is determined at runtime */
+    null, /* origin is 0,0 */
+    null, /* anchor is bottom center of the scaled image */
+    new google.maps.Size(x, y)
+  );
+}
+
 function events() {
   var url = "http://www.eventsvictoria.com/distributionservice/rss.xml"
   $.get(url, function(data) {
+  var treeIcon =
+
     $xml = $(data);
     $xml.find("item").each(function(i, itm) {
       var mTitle = $(itm).find('title').text();
@@ -77,7 +89,7 @@ function events() {
       var marker = new google.maps.Marker({
         position: mPosition,
         title: mTitle,
-        icon: global.icons.tree
+        icon: scaledIcon(global.icons.tree, 29, 32)
       })
 
       // set all markers not selected
@@ -86,21 +98,21 @@ function events() {
       // tree events
       google.maps.event.addListener(marker, 'mouseover', function () {
         if(marker.selected == false)
-          this.setIcon(global.icons.treehover);
+          this.setIcon(scaledIcon(global.icons.treehover, 29, 32));
       });
 
       google.maps.event.addListener(marker, 'mouseout', function () {
         if(marker.selected == false)
-          this.setIcon(global.icons.tree);
+          this.setIcon(scaledIcon(global.icons.tree, 29, 32));
       });
 
       google.maps.event.addListener(marker, 'click', function () {
         if(marker.selected == false) {
-          this.setIcon(global.icons.treeselected);
+          this.setIcon(scaledIcon(global.icons.treeselected, 29, 32));
           marker.selected = true;
         } else {
           marker.selected = false;
-          this.setIcon(global.icons.tree);
+          this.setIcon(scaledIcon(global.icons.tree, 29, 32));
         }
       });
 
