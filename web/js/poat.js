@@ -3,7 +3,26 @@ var global = {
   map : '',
   geocoder : '',
   clusterer: null,
-  clusterOpts: {gridSize: 100, maxZoom: 18},
+  clusterOpts: {gridSize: 100, maxZoom: 18, styles: [
+    {
+      textColor: 'white',
+      url: 'icons/scluster.png',
+      height: 32,
+      width: 32
+    },
+    {
+      textColor: 'white',
+      url: 'icons/mcluster.png',
+      height: 48,
+      width: 48
+    },
+    {
+      textColor: 'white',
+      url: 'icons/lcluster.png',
+      height: 64,
+      width: 64
+    }
+  ]},
   minZoom: 16,
   icons : {tree: "icons/tree.png", treehover: "icons/tree-hover.png", treeselected: "icons/tree-selected.png"},
   default : new google.maps.LatLng(-37.5652504, 143.8567112)
@@ -49,7 +68,7 @@ function initialize() {
   ];
 
   var mapOptions = {
-    zoom: global.minZoom,
+    zoom: 20,
     minZoom: global.minZoom,
     center: global.default,
     mapTypeControlOptions: {
