@@ -8,42 +8,41 @@ var global = {
 function initialize() {
 
   var mapStyles = [
-      {
-          featureType:"all",
-          elementType:"all",
-          stylers:
-          [
-              {visibility:"on"},
-              {hue:"#0091ff"},
-              {invert_lightness:true}
-          ]
-      },
-      {
-          featureType:"water",
-          elementType:"all",
-          stylers:
-          [
-              {visibility:"on"},
-              {hue:"#005eff"},
-              {invert_lightness:true}
-          ]
-      },
-      {
-          featureType:"poi",
-          stylers:
-          [
-              {visibility:"off"}
-          ]
-      },
-      {
-          featureType:"transit",
-          elementType:"all",
-          stylers:
-          [
-              {visibility:"off"}
-          ]
-      }
-  ];
+  {
+    "stylers": [
+      { "visibility": "on" },
+      { "invert_lightness": true }
+    ]
+  },{
+    "featureType": "poi",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "road",
+    "stylers": [
+      { "visibility": "simplified" },
+      { "hue": "#ff9100" }
+    ]
+  },{
+    "featureType": "transit",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "water",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      { "invert_lightness": true },
+      { "visibility": "on" }
+    ]
+  },{
+    "featureType": "water",
+    "stylers": [
+      { "invert_lightness": true }
+    ]
+  }
+];
 
 
   var mapOptions = {
