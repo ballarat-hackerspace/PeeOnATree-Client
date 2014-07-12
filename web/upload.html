@@ -27,9 +27,9 @@
 
     <div class="container">
 
-      <form class="form-signin" role="form" method="POST" action="/PeeOnATree-Server/api/tree/1/uploadpic" >
+      <form class="form-signin" role="form" method="POST" action="/PeeOnATree-Server/api/tree/1/uploadpic enctype="multipart/form-data"" >
         <h2 class="form-signin-heading">Upload</h2>
-        <input type="file" class="form-control" placeholder="File select" name="upload" required autofocus>
+        <input type="file" class="form-control" placeholder="File select" name="upload" accept="image/png, image/jpeg, image/jpg" required autofocus>
         <button class="btn btn-lg btn-primary btn-block green" type="submit">Upload</button>
       </form>
 
@@ -39,5 +39,8 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    
+    </script>
   </body>
 </html>
