@@ -13,7 +13,10 @@ var global = {
   ]},
   minZoom: 16,
   icons : {
-    tree: "icons/tree.png", treehover: "icons/tree-hover.png", treeselected: "icons/tree-selected.png"
+    tree: "icons/tree.png",
+    treehover: "icons/tree-hover.png",
+    treeselected: "icons/tree-selected.png",
+    treemarked: "icons/tree-marked.png"
   },
   default : new google.maps.LatLng(-37.5652504, 143.8567112)
 };
@@ -93,14 +96,24 @@ function treeMarker(tree) {
   var marker = new google.maps.Marker({
     position: mPosition,
     id: tree.trid,
-    icon: scaledIcon(global.icons.tree, 29, 32)
+    marked: tree.datetime,
+    tree: tree,
+    icon: treeState(tree)
   });
   marker.selected = false;
-  registerTreeMarkerEvents(marker);
+  registerTreeMarkerEvents(marker, tree);
   return marker;
 }
 
-function registerTreeMarkerEvents(marker) {
+function treeState(tree) {
+  var icon = global.icons.tree;
+  if(tree.datetime) icon = global.icons.treemarked;
+console.log(tree);
+console.log(icon);
+  return scaledIcon(icon, 29, 32);
+}
+
+function registerTreeMarkerEvents(marker, tree) {
   // tree events
   google.maps.event.addListener(marker, "mouseover", function () {
     if(this.selected == false)
@@ -109,18 +122,17 @@ function registerTreeMarkerEvents(marker) {
 
   google.maps.event.addListener(marker, "mouseout", function () {
     if(this.selected == false)
-      this.setIcon(scaledIcon(global.icons.tree, 29, 32));
+      this.setIcon(treeState(tree));
   });
 
   google.maps.event.addListener(marker, "click", function () {
     if(this.selected == false) {
       this.setIcon(scaledIcon(global.icons.treeselected, 29, 32));
       this.selected = true;
-      // todo: do something with id (like lookup tree info api)
       console.log(marker.id);
     } else {
       this.selected = false;
-      this.setIcon(scaledIcon(global.icons.tree, 29, 32));
+      this.setIcon(treeState(tree));
     }
   });
 }
