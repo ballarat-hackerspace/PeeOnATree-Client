@@ -34,7 +34,8 @@ function events() {
 */
 function populateUserData(){
   console.log(userData.uid);
-  $('#gravtar').attr('src',userData.gravtar)
+  gravatarurl = 'http://www.gravatar.com/avatar/' + userData.gravatar + '.jpg?s=180';
+  $('#avatar').attr('src', gravatarurl )
   $('#uid').text(userData.uid);
   $('#email').text(userData.email);
   $('#team').text('Wolf Pack');
