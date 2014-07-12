@@ -4,10 +4,9 @@ $(function () {
                 type: 'bar'
             },
             title: {
-                text: 'Tagged'
+                text: 'Total Tagged'
             },
             xAxis: {
-                categories: ['Total', 'Different Varieties'],
                 title: {
                     text: null
                 }
@@ -38,10 +37,10 @@ $(function () {
             },
             series: [{
                 name: 'Your team',
-                data: [300, 15]
+                data: [300]
             }, {
                 name: 'Fighting Mongooses',
-                data: [487, 7]
+                data: [487]
             }]
         });
 
@@ -50,10 +49,9 @@ $(function () {
                         type: 'bar'
                     },
                     title: {
-                        text: 'Cut Down'
+                        text: 'Total Varieties Tagged'
                     },
                     xAxis: {
-                        categories: ['Total'],
                         title: {
                             text: null
                         }
