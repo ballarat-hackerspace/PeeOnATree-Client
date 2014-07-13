@@ -153,7 +153,7 @@ function loadUserCharts(){
       console.log('Series[' + seriesIndex + ']');
       console.log(userSeries)
       chart1.series[seriesIndex] = userSeries;
-      #min_score = Math.min(Math.max.apply(Math, global.userData.user_totals[i][2]), min_score);
+      //min_score = Math.min(Math.max.apply(Math, global.userData.user_totals[i][2]), min_score);
       seriesIndex++;
     }
   });
@@ -169,7 +169,7 @@ function loadUserCharts(){
       console.log('Series[' + seriesIndex + ']');
       console.log(userSeries)
       chart2.series[seriesIndex] = userSeries;
-      #min_score = Math.min(Math.max.apply(Math, global.userData.user_species_totals[i][2]), min_score);
+      //min_score = Math.min(Math.max.apply(Math, global.userData.user_species_totals[i][2]), min_score);
       seriesIndex++;
     }
   });
