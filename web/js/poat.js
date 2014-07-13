@@ -160,12 +160,14 @@ function dogMarker() {
 
 function noLocation() {
   updateDog(global.map.getCenter());
+  $("#follow").removeClass("polling");
 }
 
 function updatePosition(position) {
   var latlng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
   global.map.setCenter(latlng);
   updateDog(latlng);
+  $("#follow").removeClass("polling");
 }
 
 function updateDog(latlng) {
