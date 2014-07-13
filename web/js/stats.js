@@ -146,19 +146,22 @@ function loadUserCharts(){
   var arraySize = global.userData.user_totals.length;
   var seriesIndex = 0;
   //populate chart1 with data
+  var min_score = 9999999;
   $.each(global.userData.user_totals, function(i, item){
     if (i >= (arraySize - global.resultsLimit) || global.userData.user_totals[i][0] == global.userData.uid){
       var userSeries = {name: global.userData.user_totals[i][1], data: [global.userData.user_totals[i][2]]}
       console.log('Series[' + seriesIndex + ']');
       console.log(userSeries)
       chart1.series[seriesIndex] = userSeries;
+      min_score = min(Math.max.apply(Math, global.userData.user_totals[i][2]), min_score);
       seriesIndex++;
     }
   });
+  chart1.yAxis.min = min_score;
 
   seriesIndex = 0;
   arraySize = global.userData.user_species_totals.length;
-
+  min_score = 9999999;
   //populate chart2 with data
   $.each(global.userData.user_species_totals, function(i, item){
     if (i >= (arraySize - global.resultsLimit) || global.userData.user_species_totals[i][0] == global.userData.uid){
@@ -166,10 +169,12 @@ function loadUserCharts(){
       console.log('Series[' + seriesIndex + ']');
       console.log(userSeries)
       chart2.series[seriesIndex] = userSeries;
+      min_score = min(Math.max.apply(Math, global.userData.user_totals[i][2]), min_score);
       seriesIndex++;
     }
   });
-
+  chart2.yAxis.min = min_score;
+  
   recreateCharts();
 }
 
