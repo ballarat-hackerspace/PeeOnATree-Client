@@ -2,6 +2,10 @@ body, html { height: 100%; background-color: #f7f7f7; }
 
 .container, .wrapper, .wrapper > div { height: inherit; }
 
+a {
+  color: #555;
+}
+
 .container-gutterless {
   margin: 0;
   padding: 0;
@@ -93,4 +97,25 @@ span.followme.polling {
 
 .info {
     margin:5px;
+}
+
+tr.usersRow {
+  color: #428bca;
+}
+
+
+ul.recent-marks {
+  margin-left: 8px;
+}
+
+ul.recent-marks li {
+  list-style: none;
+  margin: 8px;
+}
+
+
+ul.recent-marks li a span {
+  padding-left: 16px;
+  font-size: 10px;
+  color: #999;
 }
