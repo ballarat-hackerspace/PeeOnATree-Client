@@ -151,25 +151,40 @@ function updateMap() {
 }
 
 function dogMarker() {
-  if(global.dog) {
-    global.dog.setPosition(global.map.getCenter());
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(updatePosition, noLocation);
   } else {
-    var dog = new google.maps.MarkerImage(
-      global.icons.dog,
-      null, /* size is determined at runtime */
-      new google.maps.Point(0,0),
-      new google.maps.Point(16, 16),
-      new google.maps.Size(32, 32)
-    );
-    var marker = new google.maps.Marker({
-      position: global.map.getCenter(),
-      id: "dog",
-      icon: dog
-    });
-    marker.setMap(global.map);
-    global.dog = marker;
+    noLocation();
   }
 }
+
+function noLocation() {
+  updateMarker(global.map.getCenter());
+}
+
+function updatePosition(position) {
+  var latlng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+}
+
+function updateMarker(latlng) {
+if(global.dog) {
+  global.dog.setPosition(latlng);
+} else {
+  var dog = new google.maps.MarkerImage(
+    global.icons.dog,
+    null, /* size is determined at runtime */
+    new google.maps.Point(0,0),
+    new google.maps.Point(16, 16),
+    new google.maps.Size(32, 32)
+  );
+  var marker = new google.maps.Marker({
+    position: latlng,
+    id: "dog",
+    icon: dog
+  });
+  marker.setMap(global.map);
+  global.dog = marker;
+}}
 
 function buildUrl(lnglat, radius) {
   var lnglat = global.map.getCenter();
@@ -221,6 +236,7 @@ function geolocate() {
       var latlng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
       global.map.setCenter(latlng);
       $("#follow").removeClass("polling");
+      updatePosition(position);
     });
   }
 }
