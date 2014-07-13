@@ -73,3 +73,7 @@ span.followme.polling {
 .info {
     margin:5px;
 }
+
+tr.usersRow {
+  color: #428bca;
+}
