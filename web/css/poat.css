@@ -64,6 +64,12 @@ span.followme.polling {
   border-radius: 4px;
 }
 
+#loader {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
 .info {
     margin:5px;
 }

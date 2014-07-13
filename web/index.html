@@ -21,13 +21,210 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+
+  <style>
+#fadingBarsG{
+  position:relative;
+  width:124px;
+  height:15px}
+
+.fadingBarsG{
+  position:absolute;
+  top:0;
+  background-color:#ffffff;
+  width:15px;
+  height:15px;
+  -moz-animation-name:bounce_fadingBarsG;
+  -moz-animation-duration:0.9s;
+  -moz-animation-iteration-count:infinite;
+  -moz-animation-direction:linear;
+  -moz-transform:scale(.3);
+  -webkit-animation-name:bounce_fadingBarsG;
+  -webkit-animation-duration:0.9s;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-animation-direction:linear;
+  -webkit-transform:scale(.3);
+  -ms-animation-name:bounce_fadingBarsG;
+  -ms-animation-duration:0.9s;
+  -ms-animation-iteration-count:infinite;
+  -ms-animation-direction:linear;
+  -ms-transform:scale(.3);
+  -o-animation-name:bounce_fadingBarsG;
+  -o-animation-duration:0.9s;
+  -o-animation-iteration-count:infinite;
+  -o-animation-direction:linear;
+  -o-transform:scale(.3);
+  animation-name:bounce_fadingBarsG;
+  animation-duration:0.9s;
+  animation-iteration-count:infinite;
+  animation-direction:linear;
+  transform:scale(.3);
+}
+
+#fadingBarsG_1{
+  left:0;
+  -moz-animation-delay:0.36s;
+  -webkit-animation-delay:0.36s;
+  -ms-animation-delay:0.36s;
+  -o-animation-delay:0.36s;
+  animation-delay:0.36s;
+}
+
+#fadingBarsG_2{
+  left:16px;
+  -moz-animation-delay:0.45s;
+  -webkit-animation-delay:0.45s;
+  -ms-animation-delay:0.45s;
+  -o-animation-delay:0.45s;
+  animation-delay:0.45s;
+}
+
+#fadingBarsG_3{
+  left:31px;
+  -moz-animation-delay:0.54s;
+  -webkit-animation-delay:0.54s;
+  -ms-animation-delay:0.54s;
+  -o-animation-delay:0.54s;
+  animation-delay:0.54s;
+}
+
+#fadingBarsG_4{
+  left:47px;
+  -moz-animation-delay:0.63s;
+  -webkit-animation-delay:0.63s;
+  -ms-animation-delay:0.63s;
+  -o-animation-delay:0.63s;
+  animation-delay:0.63s;
+}
+
+#fadingBarsG_5{
+  left:62px;
+  -moz-animation-delay:0.72s;
+  -webkit-animation-delay:0.72s;
+  -ms-animation-delay:0.72s;
+  -o-animation-delay:0.72s;
+  animation-delay:0.72s;
+}
+
+#fadingBarsG_6{
+  left:78px;
+  -moz-animation-delay:0.81s;
+  -webkit-animation-delay:0.81s;
+  -ms-animation-delay:0.81s;
+  -o-animation-delay:0.81s;
+  animation-delay:0.81s;
+}
+
+#fadingBarsG_7{
+  left:93px;
+  -moz-animation-delay:0.9s;
+  -webkit-animation-delay:0.9s;
+  -ms-animation-delay:0.9s;
+  -o-animation-delay:0.9s;
+  animation-delay:0.9s;
+}
+
+#fadingBarsG_8{
+  left:109px;
+  -moz-animation-delay:0.99s;
+  -webkit-animation-delay:0.99s;
+  -ms-animation-delay:0.99s;
+  -o-animation-delay:0.99s;
+  animation-delay:0.99s;
+}
+
+@-moz-keyframes bounce_fadingBarsG{
+  0%{
+    -moz-transform:scale(1);
+    background-color:#ffffff;
+  }
+
+  100%{
+    -moz-transform:scale(.3);
+    background-color:#7f7f7f;
+  }
+
+}
+
+@-webkit-keyframes bounce_fadingBarsG{
+  0%{
+    -webkit-transform:scale(1);
+    background-color:#ffffff;
+  }
+
+  100%{
+    -webkit-transform:scale(.3);
+    background-color:#7f7f7f;
+  }
+
+}
+
+@-ms-keyframes bounce_fadingBarsG{
+  0%{
+    -ms-transform:scale(1);
+    background-color:#ffffff;
+  }
+
+  100%{
+    -ms-transform:scale(.3);
+    background-color:#7f7f7f;
+  }
+
+}
+
+@-o-keyframes bounce_fadingBarsG{
+  0%{
+    -o-transform:scale(1);
+    background-color:#ffffff;
+  }
+
+  100%{
+    -o-transform:scale(.3);
+    background-color:#7f7f7f;
+  }
+
+}
+
+@keyframes bounce_fadingBarsG{
+  0%{
+    transform:scale(1);
+    background-color:#ffffff;
+  }
+
+  100%{
+    transform:scale(.3);
+    background-color:#7f7f7f;
+  }
+
+}
+
+  </style>
 </head>
+
 
 <body>
 
 <div class="container">
-  <div class="col-md-offset-4 col-md-5 login">
-    [ LOGO ]
+  <div class="col-md-offset-4 col-md-5">
+    <div class="text-center">
+    <img src="icons/poat.png"></img>
+  </div>
+  <div class="sm-12">
+  <div id="fadingBarsG" style="display: none;">
+    <div id="fadingBarsG_1" class="fadingBarsG"></div>
+    <div id="fadingBarsG_2" class="fadingBarsG"></div>
+    <div id="fadingBarsG_3" class="fadingBarsG"></div>
+    <div id="fadingBarsG_4" class="fadingBarsG"></div>
+    <div id="fadingBarsG_5" class="fadingBarsG"></div>
+    <div id="fadingBarsG_6" class="fadingBarsG"></div>
+    <div id="fadingBarsG_7" class="fadingBarsG"></div>
+    <div id="fadingBarsG_8" class="fadingBarsG"></div>
+  </div>
+  <div class="col-sm-12">
+    <h2 id="loader" class="text-center"></h2>
+  </div>
+</div>
+
   </div>
 </div> <!-- /container -->
 
