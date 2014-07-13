@@ -12,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/poat.css" rel="stylesheet">
@@ -26,26 +27,42 @@
   <body>
 
     <div class="container">
-      <div class="col-md-offset-4 col-md-5 login">
-      <h2 class="form-signin-heading">Login</h2>
-      <form id="loginform" action="http://54.79.38.93/PeeOnATree-Server/api/user/logon" role="form" method="POST" enctype="multipart/form-data" >
-        <div class="form-group">
-          <input type="email" class="form-control" placeholder="Email address" name="email" required autofocus>
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control" placeholder="Password" name="password" required>
-        </div>
-        <div class="checkbox pull-right">
-          <label>
-            <input type="checkbox">
-            Remember me </label>
-        </div>
-        <button type="submit" class="btn btn btn-primary green">
-          Lift a Leg
-        </button>
-      </form>
-      </div>
+      <div class="col-md-offset-4 col-md-5">
+        <ul class="nav nav-tabs nav-justified" role="tablist">
+          <li class="active"><a href="#login"><b class="fa fa-fw fa-tree"></b> Login</a></li>
+          <li><a href="#register"><b class="fa fa-fw fa-pencil"></b> Register</a></li>
+        </ul>
 
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane active" id="login">
+            <form id="loginform" action="http://54.79.38.93/PeeOnATree-Server/api/user/logon" role="form" method="POST" enctype="multipart/form-data" >
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon"><b class="fa fa-fw fa-envelope"></b></span>
+                  <input type="email" class="form-control" placeholder="Email" name="email" required autofocus>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon"><b class="fa fa-fw fa-lock"></b></span>
+                  <input type="password" class="form-control" placeholder="Password" name="password" required>
+                </div>
+              </div>
+              <div class="checkbox pull-right">
+                <label>
+                  <input type="checkbox">
+                  Remember Me </label>
+              </div>
+              <button type="submit" class="btn btn btn-success">Lift a Leg</button>
+            </form>
+           </div>
+
+          <div class="tab-pane" id="register">
+          </div>
+        </div>
+
+      </div>
     </div> <!-- /container -->
 
 

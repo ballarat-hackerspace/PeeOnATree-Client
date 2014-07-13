@@ -2,9 +2,16 @@ body, html { height: 100%; background-color: #f7f7f7; }
 
 .container, .wrapper, .wrapper > div { height: inherit; }
 
+.tab-content {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-top: 0;
+  padding: 16px;
+}
+
 body {
   padding-top: 50px;
-  color: #90ee7e;
+  color: #555;
 }
 
 .wrapper {
