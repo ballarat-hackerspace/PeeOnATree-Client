@@ -98,6 +98,8 @@ function loadUserTables(){
   var userSpeciesTotal;
   var highlightClass;
   var arraySize = global.userData.user_totals.length;
+  var index;
+  console.log('arraySize:'+arraySize);
   $('#table1').html('<thead>' +
     '<tr>' +
       '<th>Player</th>' +
@@ -105,18 +107,20 @@ function loadUserTables(){
     '</tr>' +
   '</thead>');
   $.each(global.userData.user_totals, function(i, item){
-    userId = global.userData.user_totals[i][0];
-    userName = global.userData.user_totals[i][1];
-    userTotal= global.userData.user_totals[i][2];
+    index = arraySize - i - 1;
+    userId = global.userData.user_totals[index][0];
+    userName = global.userData.user_totals[index][1];
+    userTotal= global.userData.user_totals[index][2];
     if (i <= global.resultsLimit || userId == global.userData.uid){
-      if (global.userData.user_totals[i][0] == global.userData.uid)
+      if (global.userData.user_totals[index][0] == global.userData.uid)
         { highlightClass='usersRow'; }
       else
         { highlightClass = '';}
-      $('#table1').prepend('<tr class="'+highlightClass+'"><td>'+userName+'</td><td>'+userTotal+'</td></tr>');
+      $('#table1').append('<tr class="'+highlightClass+'"><td>'+userName+'</td><td>'+userTotal+'</td></tr>');
     }
   });
 
+  arraySize = global.userData.user_species_totals.length;
   $('#table2').html('<thead>' +
     '<tr>' +
       '<th>Player</th>' +
@@ -124,24 +128,26 @@ function loadUserTables(){
     '</tr>' +
   '</thead>');
   $.each(global.userData.user_species_totals, function(i, item){
-    userId = global.userData.user_species_totals[i][0];
-    userName = global.userData.user_species_totals[i][1];
-    userSpeciesTotal= global.userData.user_species_totals[i][2];
+    index = arraySize - i - 1;
+    userId = global.userData.user_species_totals[index][0];
+    userName = global.userData.user_species_totals[index][1];
+    userSpeciesTotal= global.userData.user_species_totals[index][2];
     if (i <= global.resultsLimit || userId == global.userData.uid){
-      if (global.userData.user_species_totals[i][0] == global.userData.uid)
+      if (global.userData.user_species_totals[index][0] == global.userData.uid)
         { highlightClass='usersRow'; }
       else
         { highlightClass = '';}
-      $('#table2').prepend('<tr class="'+highlightClass+'"><td>'+userName+'</td><td>'+userSpeciesTotal+'</td></tr>');
+      $('#table2').append('<tr class="'+highlightClass+'"><td>'+userName+'</td><td>'+userSpeciesTotal+'</td></tr>');
     }
   });
 }
 
 function loadUserCharts(){
+  var arraySize = global.userData.user_totals.length;
   var seriesIndex = 0;
   //populate chart1 with data
   $.each(global.userData.user_totals, function(i, item){
-    if (i <= global.resultsLimit || global.userData.user_totals[i][0] == global.userData.uid){
+    if (i >= (arraySize - global.resultsLimit) || global.userData.user_totals[i][0] == global.userData.uid){
       var userSeries = {name: global.userData.user_totals[i][1], data: [global.userData.user_totals[i][2]]}
       console.log('Series[' + seriesIndex + ']');
       console.log(userSeries)
@@ -151,10 +157,11 @@ function loadUserCharts(){
   });
 
   seriesIndex = 0;
+  arraySize = global.userData.user_species_totals.length;
 
   //populate chart2 with data
   $.each(global.userData.user_species_totals, function(i, item){
-    if (i <= global.resultsLimit || global.userData.user_species_totals[i][0] == global.userData.uid){
+    if (i >= (arraySize - global.resultsLimit) || global.userData.user_species_totals[i][0] == global.userData.uid){
       var userSeries = {name: global.userData.user_species_totals[i][1], data: [global.userData.user_species_totals[i][2]]}
       console.log('Series[' + seriesIndex + ']');
       console.log(userSeries)
