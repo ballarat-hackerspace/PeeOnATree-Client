@@ -127,7 +127,7 @@ function registerTreeMarkerEvents(marker, tree) {
     if(this.selected == false) {
       this.setIcon(scaledIcon(global.icons.treeselected, 29, 32));
       this.selected = true;
-      window.location.href = './tree.html?id=' + marker.id;
+      window.location.href = './tree.html?' + marker.id;
     } else {
       this.selected = false;
       this.setIcon(treeState(tree));
