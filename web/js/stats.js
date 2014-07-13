@@ -1,6 +1,7 @@
 var global = {
   testing : true,
-  userData : new Object
+  userData : new Object,
+  resultsLimit : 5
 }
 
 function getData(){
@@ -18,6 +19,7 @@ function recreateCharts(){
   $('#chart2').highcharts(chart2);
 }
 
+//todo - show your team if lower than the ranks we're showing
 function loadTeamTables(){
   var teamName;
   var teamTotal;
@@ -30,8 +32,11 @@ function loadTeamTables(){
     '</tr>' +
   '</thead>');
   $.each(global.userData.team_totals, function(i, item){
-    teamName = global.userData.team_totals[i][1];
-    teamTotal= global.userData.team_totals[i][2];
+    if (i >= global.resultsLimit){
+      return false;
+    }
+    teamName = global.userData.team_totals[i][0];
+    teamTotal= global.userData.team_totals[i][1];
     if (global.userData.team_totals[i][0] == global.userData.team)
       { highlightClass='usersRow'; }
     else
@@ -41,13 +46,16 @@ function loadTeamTables(){
 
   $('#table2').html('<thead>' +
     '<tr>' +
-      '<th>Team</th>' +
+      '<th>Team Name</th>' +
       '<th>Total</th>' +
     '</tr>' +
   '</thead>');
   $.each(global.userData.team_species_totals, function(i, item){
-    teamName = global.userData.team_species_totals[i][1];
-    teamSpeciesTotal= global.userData.team_species_totals[i][2];
+    if (i >= global.resultsLimit){
+      return false;
+    }
+    teamName = global.userData.team_species_totals[i][0];
+    teamSpeciesTotal= global.userData.team_species_totals[i][1];
     if (global.userData.team_species_totals[i][0] == global.userData.team)
       { highlightClass='usersRow'; }
     else
@@ -56,31 +64,40 @@ function loadTeamTables(){
   });
 }
 
+//todo - show your team if lower than the ranks we're showing
 function loadTeamCharts(){
-    //populate chart1 with data
-    $.each(global.userData.team_totals, function(i, item){
-      var userSeries = {name: global.userData.team_totals[i][1], data: [global.userData.team_totals[i][2]]}
+  var seriesIndex = 0;
+
+  //populate chart1 with data
+  $.each(global.userData.team_totals, function(i, item){
+    if (i <= global.resultsLimit){
+      var userSeries = {name: global.userData.team_totals[i][0], data: [global.userData.team_totals[i][1]]}
       console.log('Series[' + i + ']');
       console.log(userSeries)
       chart1.series[i] = userSeries;
-    });
+    }
+  });
 
-    //populate chart2 with data
-    $.each(global.userData.team_species_totals, function(i, item){
-      var userSeries = {name: global.userData.team_species_totals[i][1], data: [global.userData.team_species_totals[i][2]]}
+  //populate chart2 with data
+  $.each(global.userData.team_species_totals, function(i, item){
+    if (i <= global.resultsLimit){
+      var userSeries = {name: global.userData.team_species_totals[i][0], data: [global.userData.team_species_totals[i][1]]}
       console.log('Series[' + i + ']');
       console.log(userSeries)
       chart2.series[i] = userSeries;
-    });
+    }
+  });
 
-    recreateCharts();
+  recreateCharts();
 }
 
 function loadUserTables(){
+  var userId;
   var userName;
   var userTotal;
   var userSpeciesTotal;
   var highlightClass;
+  var arraySize = global.userData.user_totals.length;
   $('#table1').html('<thead>' +
     '<tr>' +
       '<th>Player</th>' +
@@ -88,13 +105,16 @@ function loadUserTables(){
     '</tr>' +
   '</thead>');
   $.each(global.userData.user_totals, function(i, item){
+    userId = global.userData.user_totals[i][0];
     userName = global.userData.user_totals[i][1];
     userTotal= global.userData.user_totals[i][2];
-    if (global.userData.user_totals[i][0] == global.userData.uid)
-      { highlightClass='usersRow'; }
-    else
-      { highlightClass = '';}
-    $('#table1').prepend('<tr class="'+highlightClass+'"><td>'+userName+'</td><td>'+userTotal+'</td></tr>');
+    if (i <= global.resultsLimit || userId == global.userData.uid){
+      if (global.userData.user_totals[i][0] == global.userData.uid)
+        { highlightClass='usersRow'; }
+      else
+        { highlightClass = '';}
+      $('#table1').prepend('<tr class="'+highlightClass+'"><td>'+userName+'</td><td>'+userTotal+'</td></tr>');
+    }
   });
 
   $('#table2').html('<thead>' +
@@ -104,34 +124,46 @@ function loadUserTables(){
     '</tr>' +
   '</thead>');
   $.each(global.userData.user_species_totals, function(i, item){
+    userId = global.userData.user_species_totals[i][0];
     userName = global.userData.user_species_totals[i][1];
     userSpeciesTotal= global.userData.user_species_totals[i][2];
-    if (global.userData.user_species_totals[i][0] == global.userData.uid)
-      { highlightClass='usersRow'; }
-    else
-      { highlightClass = '';}
-    $('#table2').prepend('<tr class="'+highlightClass+'"><td>'+userName+'</td><td>'+userSpeciesTotal+'</td></tr>');
+    if (i <= global.resultsLimit || userId == global.userData.uid){
+      if (global.userData.user_species_totals[i][0] == global.userData.uid)
+        { highlightClass='usersRow'; }
+      else
+        { highlightClass = '';}
+      $('#table2').prepend('<tr class="'+highlightClass+'"><td>'+userName+'</td><td>'+userSpeciesTotal+'</td></tr>');
+    }
   });
 }
 
 function loadUserCharts(){
-    //populate chart1 with data
-    $.each(global.userData.user_totals, function(i, item){
+  var seriesIndex = 0;
+  //populate chart1 with data
+  $.each(global.userData.user_totals, function(i, item){
+    if (i <= global.resultsLimit || global.userData.user_totals[i][0] == global.userData.uid){
       var userSeries = {name: global.userData.user_totals[i][1], data: [global.userData.user_totals[i][2]]}
-      console.log('Series[' + i + ']');
+      console.log('Series[' + seriesIndex + ']');
       console.log(userSeries)
-      chart1.series[i] = userSeries;
-    });
+      chart1.series[seriesIndex] = userSeries;
+      seriesIndex++;
+    }
+  });
 
-    //populate chart2 with data
-    $.each(global.userData.user_species_totals, function(i, item){
+  seriesIndex = 0;
+
+  //populate chart2 with data
+  $.each(global.userData.user_species_totals, function(i, item){
+    if (i <= global.resultsLimit || global.userData.user_species_totals[i][0] == global.userData.uid){
       var userSeries = {name: global.userData.user_species_totals[i][1], data: [global.userData.user_species_totals[i][2]]}
-      console.log('Series[' + i + ']');
+      console.log('Series[' + seriesIndex + ']');
       console.log(userSeries)
-      chart2.series[i] = userSeries;
-    });
+      chart2.series[seriesIndex] = userSeries;
+      seriesIndex++;
+    }
+  });
 
-    recreateCharts();
+  recreateCharts();
 }
 
 
@@ -161,10 +193,10 @@ function populateUserData(){
 
   if (global.testing){
     global.userData = {
-      "uid" : '3',
+      "uid" : '40',
       "email" : 'hi@hi.com',
       "gravtar" : 'fdsfds',
-      "team" : "16",
+      "team" : "Husky",
       "marks" : [{
         "trid":"1",
         "datetime":"2014-07-12 20:07:27"
@@ -172,11 +204,19 @@ function populateUserData(){
         "trid":"40",
         "datetime":"2014-07-12 20:07:33"
       }],
-      "user_totals" : [[1,"Jane Doh",16],[2,"Jon Snow", 20],[3,"Bob Chmovski",31]],
+      /*"user_totals" : [[1,"Jane Doh",16],[2,"Jon Snow", 20],[3,"Bob Chmovski",31]],
       "user_species_totals" : [[3,"Bob Chmovski",1],[1,"Jane Doh",1],[2,"Jon Snow", 2]],
       "team_totals" : [[17,"Fighting Mongooses",50],[16,"Wolves",100],[18,"Tiny Pause",200]],
-      "team_species_totals" : [[16,"Wolves",3],[17,"Fighting Mongooses",11],[18,"Tiny Pause",15]]
+      "team_species_totals" : [[16,"Wolves",3],[17,"Fighting Mongooses",11],[18,"Tiny Pause",15]]*/
+      "user_totals" : [],
+      "user_species_totals" : [],
+      "team_totals" : [],
+      "team_species_totals" : []
     };
+    global.userData.user_totals = marks_by_user;
+    global.userData.user_species_totals = species_by_user;
+    global.userData.team_totals = marks_by_team;
+    global.userData.team_species_totals = species_by_team;
     console.log(global.userData);
   }
   else{
