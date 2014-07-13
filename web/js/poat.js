@@ -4,6 +4,7 @@ var global = {
   geocoder : "",
   apiurl: "http://54.79.38.93/PeeOnATree-Server/api",
   clusterer: null,
+  dog: null,
   gpsTimer: null,
   gpsRefresh: 10000,
   clusterOpts: {gridSize: 100, maxZoom: 18, styles: [
@@ -13,6 +14,7 @@ var global = {
   ]},
   minZoom: 16,
   icons : {
+    dog: "icons/dog.png",
     tree: "icons/tree.png",
     treehover: "icons/tree-hover.png",
     treeselected: "icons/tree-selected.png",
@@ -136,6 +138,7 @@ function registerTreeMarkerEvents(marker, tree) {
 }
 
 function updateMap() {
+  dogMarker();
   var url = buildUrl();
   $.getJSON(url, function(trees) {
     var markers = [];
@@ -146,6 +149,27 @@ function updateMap() {
     if(global.clusterer) global.clusterer.clearMarkers();
     global.clusterer = new MarkerClusterer(global.map, markers, global.clusterOpts);
   });
+}
+
+function dogMarker() {
+  if(global.dog) {
+    global.dog.setPosition(global.map.getCenter());
+  } else {
+    var dog = new google.maps.MarkerImage(
+      global.icons.dog,
+      null, /* size is determined at runtime */
+      new google.maps.Point(0,0),
+      new google.maps.Point(16, 16),
+      new google.maps.Size(32, 32)
+    );
+    var marker = new google.maps.Marker({
+      position: global.map.getCenter(),
+      id: "dog",
+      icon: dog
+    });
+    marker.setMap(global.map);
+    global.dog = marker;
+  }
 }
 
 function buildUrl(lnglat, radius) {
