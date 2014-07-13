@@ -88,3 +88,11 @@ We aim to include the following features:
 * Badges and rewards! Long term goals with achievements
 * Double point events! Go to a tree near a local event for double points.
 * Global events! Rain causes all active marks to go away, requiring people to remark their territory.
+
+
+Code
+----
+
+Client (front-end): https://github.com/ballarat-hackerspace/PeeOnATree-Client
+
+Server (back-end): https://github.com/ballarat-hackerspace/PeeOnATree-Server
