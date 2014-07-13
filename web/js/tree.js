@@ -20,6 +20,15 @@ function initialize() {
 ;
 }
 
+
+function mark_tree(){
+  var url = "http://54.79.38.93/PeeOnATree-Server/api/tree/{0}/mark"
+  url = url.replace("{0}",tree)
+  $.getJSON(url, function(data) {});
+  alert("Tree marked!");
+}
+
+
 $(document).ready(function () {
   initialize();
 });
