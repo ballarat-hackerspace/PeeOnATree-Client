@@ -108,8 +108,6 @@ function treeMarker(tree) {
 function treeState(tree) {
   var icon = global.icons.tree;
   if(tree.datetime) icon = global.icons.treemarked;
-console.log(tree);
-console.log(icon);
   return scaledIcon(icon, 29, 32);
 }
 
@@ -129,7 +127,7 @@ function registerTreeMarkerEvents(marker, tree) {
     if(this.selected == false) {
       this.setIcon(scaledIcon(global.icons.treeselected, 29, 32));
       this.selected = true;
-      console.log(marker.id);
+      window.location.href = './tree.html?id=' + marker.id;
     } else {
       this.selected = false;
       this.setIcon(treeState(tree));
