@@ -2,7 +2,6 @@ $(document).ready(function() {
   $("#loginform").submit(function() {
     var $form = $(this);
     var url = $form.attr("action");
-    console.log($form.serialize());
     $.ajax({
            type: "POST",
            url: url,
@@ -15,7 +14,6 @@ $(document).ready(function() {
 });
 
 function login(data) {
-  console.log(data);
   if(data == "true")
     pass();
   else
