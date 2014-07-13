@@ -22,9 +22,9 @@ var global = {
 };
 
 function initialize() {
-  mapInit();
-  searchInit();
-  followInit();
+    mapInit();
+    searchInit();
+    followInit();
 }
 
 function searchInit() {

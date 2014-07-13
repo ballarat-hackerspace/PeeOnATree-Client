@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Sign in Template for Bootstrap</title>
+    <title>Login</title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
@@ -28,8 +28,7 @@
     <div class="container">
       <div class="col-md-offset-4 col-md-5 login">
       <h2 class="form-signin-heading">Login</h2>
-      <form role="form" action="http://54.79.38.93/PeeOnATree-Server/api/user/logon" method="POST" enctype="multipart/form-data" >
-
+      <form id="loginform" action="http://54.79.38.93/PeeOnATree-Server/api/user/logon" role="form" method="POST" enctype="multipart/form-data" >
         <div class="form-group">
           <input type="email" class="form-control" placeholder="Email address" name="email" required autofocus>
         </div>
@@ -53,5 +52,8 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="js/login.js"></script>
   </body>
 </html>
