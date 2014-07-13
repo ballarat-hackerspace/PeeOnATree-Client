@@ -16,9 +16,6 @@ Visit some trees, learn a thing or two and crowdsource your local area database.
 Players walk around their neighbourhood, looking for trees to mark.
 When marked, you view information about the tree, such as the Genus and Species.
 
-listing their team members, details about their project, what data sets they used and what competition categories (local and national) that they are going for
-
-
 Values
 ------
 
