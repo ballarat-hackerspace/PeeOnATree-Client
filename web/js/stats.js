@@ -201,8 +201,8 @@ function populateUserData(){
   if (global.testing){
     global.userData = {
       "uid" : '40',
-      "email" : 'hi@hi.com',
-      "gravtar" : 'fdsfds',
+      "email" : 'admin@bhack.in',
+      "gravatar" : '41ffe8d01e408baf093f2efe993002e1',
       "team" : "Husky",
       "marks" : [{
         "trid":"1",
