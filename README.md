@@ -5,7 +5,7 @@ Pee on a Tree!
 
 <div style="text-align:center" markdown="1">
 
-<img src="web/icons/poat.svg" alt="Pee on a Tree!">
+<img src="https://raw.githubusercontent.com/ballarat-hackerspace/PeeOnATree-Client/master/web/icons/poat_green.png" alt="Pee on a Tree!">
 
 </div>
 
