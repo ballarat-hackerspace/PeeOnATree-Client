@@ -52,11 +52,10 @@ function followInit() {
 
 function mapInit() {
   var mapStyles = [
-    {"stylers": [{ "invert_lightness": true }]},
-    {"featureType": "road", "stylers": [{ "visibility": "simplified" },{ "hue": "#ff9100" }]},
+    {"stylers": [{ "hue": "#00ff4d" }]},
+    {"featureType": "road", "stylers": [{ "visibility": "simplified" }]},
     {"featureType": "water","stylers": [{ "invert_lightness": true }]},
     {"featureType": "transit", "stylers": [{ "visibility": "off" }]},
-    {"featureType": "poi", "stylers": [{ "visibility": "off" }]},
     {"featureType": "water", "elementType": "labels.text.fill"}
   ];
 
