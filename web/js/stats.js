@@ -1,5 +1,5 @@
 var global = {
-  testing : true,
+  testing : false,
   userData : new Object,
   resultsLimit : 5
 }
