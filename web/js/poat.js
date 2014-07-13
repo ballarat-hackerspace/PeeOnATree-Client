@@ -236,7 +236,7 @@ function search() {
 function geolocate() {
   if(navigator.geolocation) {
     $("#follow").addClass("polling");
-    navigator.geolocation.getCurrentPosition(updateLocation, noLocation);
+    navigator.geolocation.getCurrentPosition(updatePosition, noLocation);
   }
 }
 
