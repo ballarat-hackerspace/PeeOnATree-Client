@@ -153,11 +153,11 @@ function loadUserCharts(){
       console.log('Series[' + seriesIndex + ']');
       console.log(userSeries)
       chart1.series[seriesIndex] = userSeries;
-      #min_score = Math.min(Math.max.apply(Math, global.userData.user_totals[i][2]), min_score);
+      //min_score = Math.min(Math.max.apply(Math, global.userData.user_totals[i][2]), min_score);
       seriesIndex++;
     }
   });
-  chart1.yAxis.min = min_score;
+  //chart1.yAxis.min = min_score;
 
   seriesIndex = 0;
   arraySize = global.userData.user_species_totals.length;
@@ -169,11 +169,11 @@ function loadUserCharts(){
       console.log('Series[' + seriesIndex + ']');
       console.log(userSeries)
       chart2.series[seriesIndex] = userSeries;
-      #min_score = Math.min(Math.max.apply(Math, global.userData.user_species_totals[i][2]), min_score);
+      //min_score = Math.min(Math.max.apply(Math, global.userData.user_species_totals[i][2]), min_score);
       seriesIndex++;
     }
   });
-  chart2.yAxis.min = min_score;
+  //chart2.yAxis.min = min_score;
   
   recreateCharts();
 }
