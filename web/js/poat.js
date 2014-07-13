@@ -241,9 +241,9 @@ function geolocate() {
 }
 
 
-function mark_tree(trid){
+function mark_tree(){
   var url = global.apiurl + "/tree/{0}/mark"
-  url = url.replace("{0}",trid)
+  url = url.replace("{0}",tree)
   $.getJSON(url, function(data) {});
   alert("Tree marked!");
 }
