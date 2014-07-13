@@ -13,6 +13,40 @@ function getData(){
   })
 }
 
+function recreateCharts(){
+  $('#chart1').highcharts(chart1);
+  $('#chart2').highcharts(chart2);
+}
+
+function loadTeamTables(){
+  var teamName;
+  var teamTotal;
+  var teamSpeciesTotal;
+  $('#table1').html('<thead>' +
+    '<tr>' +
+      '<th>Team Name</th>' +
+      '<th>Total</th>' +
+    '</tr>' +
+  '</thead>');
+  $.each(global.userData.team_totals, function(i, item){
+    teamName = global.userData.team_totals[i][0];
+    teamTotal= global.userData.team_totals[i][1];
+    $('#table1').prepend('<tr><td>'+teamName+'</td><td>'+teamTotal+'</td></tr>');
+  });
+
+  $('#table2').html('<thead>' +
+    '<tr>' +
+      '<th>Team</th>' +
+      '<th>Total</th>' +
+    '</tr>' +
+  '</thead>');
+  $.each(global.userData.team_species_totals, function(i, item){
+    teamName = global.userData.team_species_totals[i][0];
+    teamSpeciesTotal= global.userData.team_species_totals[i][1];
+    $('#table2').prepend('<tr><td>'+teamName+'</td><td>'+teamSpeciesTotal+'</td></tr>');
+  });
+}
+
 function loadTeamCharts(){
     //populate chart1 with data
     $.each(global.userData.team_totals, function(i, item){
@@ -22,7 +56,7 @@ function loadTeamCharts(){
       chart1.series[i] = userSeries;
     });
 
-    //populate chart1 with data
+    //populate chart2 with data
     $.each(global.userData.team_species_totals, function(i, item){
       var userSeries = {name: global.userData.team_species_totals[i][0], data: [global.userData.team_species_totals[i][1]]}
       console.log('Series[' + i + ']');
@@ -30,11 +64,40 @@ function loadTeamCharts(){
       chart2.series[i] = userSeries;
     });
 
-    $('#chart1').highcharts(chart1);
-    $('#chart2').highcharts(chart2);
+    recreateCharts();
+}
+
+function loadUserTables(){
+  var userName;
+  var userTotal;
+  var userSpeciesTotal;
+  $('#table1').html('<thead>' +
+    '<tr>' +
+      '<th>Player</th>' +
+      '<th>Total</th>' +
+    '</tr>' +
+  '</thead>');
+  $.each(global.userData.user_totals, function(i, item){
+    userName = global.userData.user_totals[i][0];
+    userTotal= global.userData.user_totals[i][1];
+    $('#table1').prepend('<tr><td>'+userName+'</td><td>'+userTotal+'</td></tr>');
+  });
+
+  $('#table2').html('<thead>' +
+    '<tr>' +
+      '<th>Player</th>' +
+      '<th>Total</th>' +
+    '</tr>' +
+  '</thead>');
+  $.each(global.userData.user_species_totals, function(i, item){
+    userName = global.userData.user_species_totals[i][0];
+    userSpeciesTotal= global.userData.user_species_totals[i][1];
+    $('#table2').prepend('<tr><td>'+userName+'</td><td>'+userSpeciesTotal+'</td></tr>');
+  });
 }
 
 function loadUserCharts(){
+    //populate chart1 with data
     $.each(global.userData.user_totals, function(i, item){
       var userSeries = {name: global.userData.user_totals[i][0], data: [global.userData.user_totals[i][1]]}
       console.log('Series[' + i + ']');
@@ -42,19 +105,16 @@ function loadUserCharts(){
       chart1.series[i] = userSeries;
     });
 
-    //populate chart1 with data
+    //populate chart2 with data
     $.each(global.userData.user_species_totals, function(i, item){
-      var userSeries = {name: global.userData.team_species_totals[i][0], data: [global.userData.team_species_totals[i][1]]}
+      var userSeries = {name: global.userData.user_species_totals[i][0], data: [global.userData.user_species_totals[i][1]]}
       console.log('Series[' + i + ']');
       console.log(userSeries)
       chart2.series[i] = userSeries;
     });
 
-    $('#chart1').highcharts(chart1);
-    $('#chart2').highcharts(chart2);
+    recreateCharts();
 }
-
-
 
 
 /*
@@ -63,12 +123,14 @@ function loadUserCharts(){
 function events() {
   $('a[href="#team"]').click(function(){
     loadTeamCharts();
+    loadTeamTables();
     $('#teamtab').addClass('active');
     $('#youtab').removeClass();
   });
 
   $('a[href="#you"]').click(function(){
     loadUserCharts();
+    loadUserTables();
     $('#youtab').addClass('active');
     $('#teamtab').removeClass();
   });
@@ -91,10 +153,10 @@ function populateUserData(){
         "trid":"40",
         "datetime":"2014-07-12 20:07:33"
       }],
-      "user_totals" : [["Jon Snow", 20],["Bob Chmovski",16],["Jane Doh",31]],
-      "user_species_totals" : [["Jon Snow", 2],["Bob Chmovski",1],["Jane Doh",3]],
-      "team_totals" : [["Wolves",100],["Fighting Mongooses",200],["Tiny Pause",50]],
-      "team_species_totals" : [["Wolves",3],["Fighting Mongooses",11],["Tiny Pause",7]]
+      "user_totals" : [["Jane Doh",16],["Jon Snow", 20],["Bob Chmovski",31]],
+      "user_species_totals" : [["Jane Doh",1],["Jon Snow", 2],["Bob Chmovski",4]],
+      "team_totals" : [["Fighting Mongooses",50],["Wolves",100],["Tiny Pause",200]],
+      "team_species_totals" : [["Wolves",3],["Fighting Mongooses",11],["Tiny Pause",15]]
     };
     console.log(global.userData);
   }
@@ -116,5 +178,6 @@ function populateUserData(){
 $(document).ready(function() {
   events();
   populateUserData();
+  loadTeamTables();
   loadTeamCharts();
 });
