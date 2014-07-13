@@ -8,9 +8,9 @@ var global = {
   gpsTimer: null,
   gpsRefresh: 10000,
   clusterOpts: {gridSize: 100, maxZoom: 18, styles: [
-    { textColor: "white", url: "icons/scluster.png", height: 48, width: 48 },
+    { textColor: "white", url: "icons/scluster.png", height: 32, width: 32 },
     { textColor: "white", url: "icons/mcluster.png", height: 48, width: 48 },
-    { textColor: "white", url: "icons/lcluster.png", height: 48, width: 48 }
+    { textColor: "white", url: "icons/lcluster.png", height: 64, width: 64 }
   ]},
   minZoom: 16,
   icons : {
