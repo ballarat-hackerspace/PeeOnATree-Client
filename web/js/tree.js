@@ -14,7 +14,6 @@ function initialize() {
       $.each(data, function(index, mark) {
         console.log(mark.uid);
 //        $.getJSON("http://54.79.38.93/PeeOnATree-Server/api/user/" + mark. + "/history",
-        $('.history ul').append('<li>Test</li>');
       });
     });
 ;

@@ -26,33 +26,33 @@
 </head>
 <body>
 
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse"
-              data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="app.html">POAT</a>
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="app.html">POAT</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="tree.html">Tree</a></li>
+          <li><a href="stats.html">Stats</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
     </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li><a href="tree.html">Tree</a></li>
-        <li><a href="stats.html">Stats</a></li>
-      </ul>
-    </div>
-    <!--/.nav-collapse -->
   </div>
 
-</div>
+  <div class="jumbotron">
+    <img src="icons/tree.jpg"></img>
+  </div>
 
-
-  <div class="jumbotron"></div>
-  <div class="container tab-content">
-    <div class="trees">
+  <div class="container">
+    <div class="rows trees">
       <div class="col-sm-12">
         <div class="btn-group btn-group-justified">
           <div class="btn-group">
@@ -71,68 +71,75 @@
             </button>
           </div>
         </div>
-      <div class="col-md-6 col-sm-12">
       </div>
-      <div class="col-md-3 col-sm-12">
-      </div>
-      <div class="col-md-3 col-sm-12">
     </div>
-    <div class="col-md-4 stats">
-      <h2>Top Dogs</h2>
-      <table id="top-dogs" class="table">
-        <thead>
-          <tr><td>Player</td><td>Marks</td></tr>
-        </thead>
-        <tbody>
+    <div class="rows trees">
+      <div class="col-sm-12">
+        <p><b>Health:</b> Good</p>
+        <p><b>Age:</b> Mature</p>
+        <p><b>Species:</b> <a href="http://en.wikipedia.org/wiki/Eucalyptus_robusta">Eucalyptus Robust</a></p>
+        <p><b>Summary:</b> Eucalyptus robusta, commonly known as swamp mahogany or swamp messmate, is a tree native to eastern Australia. Growing in swampy or waterlogged soils, it is up to 30 m (100 ft) high with thick spongy reddish brown bark and dark green broad leaves, which help form a dense canopy. The white to cream flowers appear in autumn and winter. The leaves are commonly eaten by insects, and are a food item for the koala. It is an important winter-flowering species in eastern Australia, and has been planted extensively in many countries around the world. Its timber is used for firewood and in general construction.</p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-4 stats">
+        <h2>Top Dogs</h2>
+        <table id="top-dogs" class="table">
+          <thead>
+            <tr><td>Player</td><td>Marks</td></tr>
+          </thead>
+          <tbody>
           <tr><td>Emma Taylor</td><td>5</td></tr>
           <tr><td>Alexander Brown</td><td>4</td></tr>
           <tr><td>Sophia Smith</td><td>4</td></tr>
           <tr><td>Mason Jones</td><td>4</td></tr>
           <tr><td>Ava Wilson</td><td>4</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="history col-md-4">
-      <h2>Recent marks</h2>
-      <ul class="recent-marks">
-        <li>
+          </tbody>
+        </table>
+      </div>
+      <div class="history col-md-4">
+        <h2>Recent marks</h2>
+        <ul class="recent-marks">
+          <li>
           <img src="//www.gravatar.com/avatar/e7f7cd5ac179bb97f164a2734dbc0076.jpg?s=32&amp;d=retro" class="">
           <a href="">Liam Wilson <span>2 hours ago</span></a>
-        </li>
-        <li>
+          </li>
+          <li>
           <img src="//www.gravatar.com/avatar/e7f7cd5a2345bb97f164a2734dbc0076.jpg?s=32&amp;d=retro" class="">
           <a href="">Emma Jones <span>4 hours ago</span></a>
-        </li>
-        <li>
+          </li>
+          <li>
           <img src="//www.gravatar.com/avatar/b6c979630ca8072189fb547f5e7ce9a3.jpg?s=32&amp;d=retro" class="">
           <a href="">Eliza Broon <span>14 hours ago</span></a>
-        </li>
-        <li>
+          </li>
+          <li>
           <img src="//www.gravatar.com/avatar/e7f7cd765479bb97f164a2734dbc0076.jpg?s=32&amp;d=retro" class="">
           <a href="">Ethan Anderson <span>2 days ago</span></a>
-        </li>
-        <li>
+          </li>
+          <li>
           <img src="//www.gravatar.com/avatar/e7f7cd5ac179bb97f164a24224bc0076.jpg?s=32&amp;d=retro" class="">
           <a href="">Anna White <span>1 week ago</span></a>
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-4 stats">
-      <h2>Top Packs</h2>
-      <table id="top-packs" class="table">
-        <thead>
-          <tr><td>Team Name</td><td>Marks</td></tr>
-        </thead>
-        <tbody>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-4 stats">
+        <h2>Top Packs</h2>
+        <table id="top-packs" class="table">
+          <thead>
+            <tr><td>Team Name</td><td>Marks</td></tr>
+          </thead>
+          <tbody>
           <tr><td>Dalmation</td><td>5</td></tr>
           <tr><td>Dachsund</td><td>4</td></tr>
           <tr><td>Shih-Tzu</td><td>4</td></tr>
           <tr><td>Basset</td><td>3</td></tr>
           <tr><td>Husky</td><td>0</td></tr>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
 <!-- /.container -->
 
 <!-- Bootstrap core JavaScript
