@@ -55,8 +55,12 @@ span.followme.polling {
   border-color: #63AFD0;
 }
 
+.stats tr {
+  background-color: white;
+}
+
 .stats tr:nth-child(even) {
-    background: #444;
+    background: #F3F0F0;
 }
 
 .btn-primary.green {
@@ -72,6 +76,10 @@ span.followme.polling {
   background: #444;
 }
 
+.usersRow {
+  color: #428bca;
+}
+
 .login {
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -85,8 +93,4 @@ span.followme.polling {
 
 .info {
     margin:5px;
-}
-
-tr.usersRow {
-  color: #428bca;
 }
