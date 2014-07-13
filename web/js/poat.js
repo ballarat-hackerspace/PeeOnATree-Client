@@ -240,6 +240,15 @@ function geolocate() {
   }
 }
 
+
+function mark_tree(trid){
+  var url = global.apiurl + "/tree/{0}/mark"
+  url = url.replace("{0}",trid)
+  $.getJSON(url, function(data) {});
+  alert("Tree marked!");
+}
+
+
 $(document).ready(function() {
   initialize();
 });
