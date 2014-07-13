@@ -137,7 +137,6 @@ function registerTreeMarkerEvents(marker, tree) {
 }
 
 function updateMap() {
-  dogMarker();
   var url = buildUrl();
   $.getJSON(url, function(trees) {
     var markers = [];
@@ -148,6 +147,7 @@ function updateMap() {
     if(global.clusterer) global.clusterer.clearMarkers();
     global.clusterer = new MarkerClusterer(global.map, markers, global.clusterOpts);
   });
+  dogMarker();
 }
 
 function dogMarker() {
@@ -159,11 +159,12 @@ function dogMarker() {
 }
 
 function noLocation() {
-  updateMarker(global.map.getCenter());
+  updateDog(global.map.getCenter());
 }
 
 function updatePosition(position) {
   var latlng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+  global.map.setCenter(latlng);
   updateDog(latlng);
 }
 
@@ -233,12 +234,7 @@ function search() {
 function geolocate() {
   if(navigator.geolocation) {
     $("#follow").addClass("polling");
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var latlng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-      global.map.setCenter(latlng);
-      updateDog(latlng);
-      $("#follow").removeClass("polling");
-    });
+    navigator.geolocation.getCurrentPosition(updateLocation, noLocation);
   }
 }
 
