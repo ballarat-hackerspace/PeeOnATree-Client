@@ -157,7 +157,7 @@ function loadUserCharts(){
       seriesIndex++;
     }
   });
-  chart1.yAxis.min = min_score;
+  //chart1.yAxis.min = min_score;
 
   seriesIndex = 0;
   arraySize = global.userData.user_species_totals.length;
@@ -173,7 +173,7 @@ function loadUserCharts(){
       seriesIndex++;
     }
   });
-  chart2.yAxis.min = min_score;
+  //chart2.yAxis.min = min_score;
   
   recreateCharts();
 }
