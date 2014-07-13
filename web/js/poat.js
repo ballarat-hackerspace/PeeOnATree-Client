@@ -48,6 +48,7 @@ function followInit() {
       global.gpsTimer = setInterval(geolocate, global.gpsRefresh);
     }
   });
+  dogMarker();
 }
 
 function mapInit() {
@@ -147,7 +148,6 @@ function updateMap() {
     if(global.clusterer) global.clusterer.clearMarkers();
     global.clusterer = new MarkerClusterer(global.map, markers, global.clusterOpts);
   });
-  dogMarker();
 }
 
 function dogMarker() {
