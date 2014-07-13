@@ -6,7 +6,7 @@ $(function () {
             chart: { type: 'bar' },
             title: { text: 'Total Tagged' },
             xAxis: { title: { text: null } },
-            yAxis: { min: 0, },
+            yAxis: {  },
             plotOptions: { bar: { dataLabels: { enabled: true } } },
             legend: {
                 layout: 'vertical',
@@ -26,7 +26,7 @@ $(function () {
             chart: { type: 'bar' },
             title: { text: 'Total Species Tagged' },
             xAxis: { title: { text: null  } },
-            yAxis: { min: 0, },
+            yAxis: {  },
             plotOptions: { bar: { dataLabels: { enabled: true } }
             },
             legend: {
