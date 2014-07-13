@@ -174,7 +174,7 @@ function loadUserCharts(){
     }
   });
   //chart2.yAxis.min = min_score;
-  
+
   recreateCharts();
 }
 
@@ -239,7 +239,7 @@ function populateUserData(){
   $('#avatar').attr('src', gravatarurl )
 //  $('#uid').text(global.userData.uid);
   $('#email').text(global.userData.email);
-  $('#team').text('Wolf Pack');
+  $('#team').text(global.userData.team);
 }
 
 
