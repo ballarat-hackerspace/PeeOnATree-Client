@@ -38,7 +38,7 @@ It supports and encourages science, technology, engineering, art and math cultur
 
 * Brett James - Web Developer and system integration, live event (gaming) commentary/tech setups, photog, Pizza loving geek.
 * Ian Firns - Electrical engineer and software developer.
-* Josh Stuart - Programmer, commuter, funny red hoodie.
+* Josh Stewart - Programmer, commuter, funny red hoodie.
 * Matt Barker - Support Engineer, dabbler in tech.
 * Matt Weston - Software developer and technology enthusiast.
 * Robert Layton - researcher investigating data analytics applied to cybercrime.
