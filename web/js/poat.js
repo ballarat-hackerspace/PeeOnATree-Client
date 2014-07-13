@@ -164,9 +164,10 @@ function noLocation() {
 
 function updatePosition(position) {
   var latlng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+  updateDog(latlng);
 }
 
-function updateMarker(latlng) {
+function updateDog(latlng) {
 if(global.dog) {
   global.dog.setPosition(latlng);
 } else {
@@ -235,8 +236,8 @@ function geolocate() {
     navigator.geolocation.getCurrentPosition(function(position) {
       var latlng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
       global.map.setCenter(latlng);
+      updateDog(latlng);
       $("#follow").removeClass("polling");
-      updatePosition(position);
     });
   }
 }
