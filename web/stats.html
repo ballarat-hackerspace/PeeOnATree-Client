@@ -43,20 +43,21 @@
 
     <div class="container">
       <div class="account row">
-        <div class="col-md-2">
-          <img id="avatar" src="icons/avatar.png"/>
-        </div>
-        <div class="col-md-10">
-          <div class="row"><div class="col-md-12" id="uid"></div></div>
-          <div class="row"><div class="col-md-12" id="email"></div></div>
-          <div class="row"><div class="col-md-12" id="team"></div></div>
+        <div class="profile">
+          <div class="col-sm-2 text-center">
+            <img class="img-responsive" id="avatar" src="icons/avatar.png"/>
+          </div>
+          <div class="col-sm-10">
+            <h1 id="email"></h1>
+            <h2 id="team"></h2>
+          </div>
         </div>
       </div>
       <ul class="nav nav-tabs">
         <li id="teamtab" class="active"><a href="#team">Team</a></li>
         <li id="youtab"><a href="#you">You</a></li>
       </ul>
-      <div class="stats">
+      <div class="tab-content stats">
         <div class="row">
           <div class="col-md-4">
             <table id="table1" class="table"></table>

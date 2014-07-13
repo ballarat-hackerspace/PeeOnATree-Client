@@ -230,9 +230,9 @@ function populateUserData(){
     getData();
   }
 
-  gravatarurl = 'http://www.gravatar.com/avatar/' + global.userData.gravatar + '.jpg?s=180';
+  gravatarurl = 'http://www.gravatar.com/avatar/' + global.userData.gravatar + '.jpg?s=96&d=retro';
   $('#avatar').attr('src', gravatarurl )
-  $('#uid').text(global.userData.uid);
+//  $('#uid').text(global.userData.uid);
   $('#email').text(global.userData.email);
   $('#team').text('Wolf Pack');
 }
